@@ -1,5 +1,6 @@
 import LightspeedRetailApi from '../clients/LightspeedRetailApi';
 import nock = require('nock');
+const baseUrl: string = 'https://api.lightspeedapp.com';
 
 describe('LightspeedRetailApi Retail Api', () => {
   it('has all the methods available', () => {
@@ -111,7 +112,7 @@ describe('LightspeedRetailApi Retail Api', () => {
       refreshToken: 'token',
     });
 
-    nock('https://cloud.merchantos.com')
+    nock(baseUrl)
       .post(/.*/, (body) => true)
       .reply(200, {
         access_token: 'access_token',
@@ -134,7 +135,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -143,7 +144,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Item.json?load_relations=%5B%22ItemShops%22%2C%20%22Images%22%2C%20%22Manufacturer%22%5D&offset=0&limit=100'
           )
@@ -187,7 +188,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -196,7 +197,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Item.json?load_relations=%5B%22ItemShops%22%2C%20%22Images%22%2C%20%22Manufacturer%22%5D&offset=0&limit=100'
           )
@@ -236,7 +237,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -245,7 +246,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Category.json?offset=0&limit=100')
           .reply(200, {
             '@attributes': {
@@ -286,7 +287,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -295,7 +296,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Category.json?offset=0&limit=100')
           .reply(200, {
             '@attributes': {
@@ -333,7 +334,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -342,7 +343,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Manufacturer.json?offset=0&limit=100')
           .reply(200, {
             '@attributes': {
@@ -383,7 +384,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -392,7 +393,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Manufacturer.json?offset=0&limit=100')
           .reply(200, {
             '@attributes': {
@@ -430,7 +431,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -439,7 +440,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&offset=0&limit=100'
           )
@@ -482,7 +483,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -491,7 +492,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&offset=0&limit=100'
           )
@@ -529,7 +530,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -538,7 +539,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&title=~%2C%25Barf%25&lastName=Sagat&firstName=Bob&offset=0&limit=100'
           )
@@ -584,7 +585,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -593,7 +594,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get('/API/Account/12345/CustomerType.json?offset=0&limit=100')
           .reply(200, {
             '@attributes': {
@@ -634,7 +635,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -643,7 +644,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get('/API/Account/12345/CustomerType.json?offset=0&limit=100')
           .reply(200, {
             '@attributes': {
@@ -681,7 +682,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -690,7 +691,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Sale.json?load_relations=%5B%22TaxCategory%22%2C%22SaleLines%22%2C%22SaleLines.Item%22%2C%22SalePayments%22%2C%22SalePayments.PaymentType%22%2C%22Customer%22%2C%22Discount%22%2C%22Customer.Contact%22%5D&offset=0&limit=100'
           )
@@ -733,7 +734,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -742,7 +743,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Sale.json?load_relations=%5B%22TaxCategory%22%2C%22SaleLines%22%2C%22SaleLines.Item%22%2C%22SalePayments%22%2C%22SalePayments.PaymentType%22%2C%22Customer%22%2C%22Discount%22%2C%22Customer.Contact%22%5D&offset=0&limit=100'
           )
@@ -784,7 +785,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -793,7 +794,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.merchantos.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Item/1.json?load_relations=%5B%22ItemShops%22%2C%22Images%22%2C%22Manufacturer%22%2C%22CustomFieldValues%22%2C%22CustomFieldValues.value%22%5D'
           )
@@ -819,7 +820,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -828,7 +829,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/ItemMatrix/1.json')
           .reply(200, {
             '@attributes': {
@@ -852,7 +853,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -861,7 +862,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Item.json?itemMatrixID=1')
           .reply(200, {
             '@attributes': {
@@ -892,7 +893,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -901,7 +902,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Item.json?customSku=1')
           .reply(200, {
             '@attributes': {
@@ -927,7 +928,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -936,7 +937,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get(
             '/API/Account/12345/Customer/1.json?load_relations=[%22CustomFieldValues%22,%20%22CustomFieldValues.value%22]'
           )
@@ -962,7 +963,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -971,7 +972,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Contact/1.json')
           .reply(200, {
             '@attributes': {
@@ -997,7 +998,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1006,7 +1007,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/SalePayment/1.json')
           .reply(200, {
             '@attributes': {
@@ -1030,7 +1031,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1039,7 +1040,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/SalePayment.json?saleID=1')
           .reply(200, {
             '@attributes': {
@@ -1070,7 +1071,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1079,7 +1080,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/SaleLine.json?saleID=1')
           .reply(200, {
             '@attributes': {
@@ -1110,7 +1111,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1119,7 +1120,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/SaleLine/1.json')
           .reply(200, {
             '@attributes': {
@@ -1143,7 +1144,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1152,7 +1153,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/PaymentType/1.json')
           .reply(200, {
             '@attributes': {
@@ -1176,7 +1177,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1185,7 +1186,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .get('/API/Account/12345/Shop/1.json')
           .reply(200, {
             '@attributes': {
@@ -1213,7 +1214,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1222,7 +1223,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/Customer.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1249,7 +1250,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1258,7 +1259,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/Sale.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1283,7 +1284,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1292,7 +1293,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/CustomerType.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1316,7 +1317,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1325,7 +1326,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/Customer/CustomField.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1353,7 +1354,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1362,7 +1363,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/Item.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1386,7 +1387,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1395,7 +1396,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/ItemAttributeSet.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1421,7 +1422,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1430,7 +1431,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/ItemMatrix.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1454,7 +1455,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1463,7 +1464,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/Item/CustomField.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1491,7 +1492,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1500,7 +1501,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .post('/API/Account/12345/PaymentType.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1528,7 +1529,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1537,7 +1538,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .put('/API/Account/12345/Customer/1.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1563,7 +1564,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1572,7 +1573,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .put('/API/Account/12345/Item/1.json', (body) => true)
           .reply(200, {
             '@attributes': {
@@ -1596,7 +1597,7 @@ describe('LightspeedRetailApi Retail Api', () => {
           refreshToken: 'token',
         });
 
-        nock('https://cloud.merchantos.com')
+        nock(baseUrl)
           .post(/.*/, (body) => true)
           .reply(200, {
             access_token: 'access_token',
@@ -1605,7 +1606,7 @@ describe('LightspeedRetailApi Retail Api', () => {
             scope: 'employee:all',
           });
 
-        nock('https://api.lightspeedapp.com')
+        nock(baseUrl)
           .put('/API/Account/12345/ItemMatrix/1.json', () => true)
           .reply(200, {
             '@attributes': {

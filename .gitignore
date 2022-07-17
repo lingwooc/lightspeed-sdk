@@ -118,3 +118,4 @@ dist
 
 # babel build
 dist/
+launch.json
