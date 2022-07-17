@@ -238,8 +238,8 @@ describe('LightspeedRetailApi Retail Api', () => {
         });
 
         nock(baseUrl)
-          .post(/.*/, (body) => true)
-          .reply(200, {
+        .post(/.*/, (body) => true)
+        .reply(200, {
             access_token: 'access_token',
             expires_in: 1800,
             token_type: 'bearer',

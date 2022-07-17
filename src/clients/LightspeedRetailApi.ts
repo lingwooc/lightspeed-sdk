@@ -19,7 +19,7 @@ const FormData = require('form-data');
 
 const { sleep } = require('../utils/timeUtils');
 
-const baseUrl: String = 'https://api.lightspeedapp.com/API/';
+const baseUrl: String = 'https://api.lightspeedapp.com';
 
 type ConstructorOptions = {
   clientId: string;
@@ -170,7 +170,7 @@ class LightspeedRetailApi {
   }
 
   async postItem(accountId:number, item) {
-    const url = `${baseUrl}Account/${accountId}/Item.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Item.json`;
 
     const options = {
       method: 'POST',
@@ -190,7 +190,7 @@ class LightspeedRetailApi {
     accountId: number | string,
     customer: PostCustomer
   ): Promise<Customer | never> {
-    const url = `${baseUrl}Account/${accountId}/Customer.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Customer.json`;
 
     const options = {
       method: 'POST',
@@ -207,7 +207,7 @@ class LightspeedRetailApi {
   }
 
   async postCustomerType(accountId:number, customerType) {
-    const url = `${baseUrl}Account/${accountId}/CustomerType.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/CustomerType.json`;
 
     const options = {
       method: 'POST',
@@ -224,7 +224,7 @@ class LightspeedRetailApi {
   }
 
   async postItemAttributeSet(accountId:number, attributeSet) {
-    const url = `${baseUrl}Account/${accountId}/ItemAttributeSet.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/ItemAttributeSet.json`;
 
     const options = {
       method: 'POST',
@@ -241,7 +241,7 @@ class LightspeedRetailApi {
   }
 
   async postItemMatrix(accountId:number, itemMatrix) {
-    const url = `${baseUrl}Account/${accountId}/ItemMatrix.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/ItemMatrix.json`;
 
     const options = {
       method: 'POST',
@@ -258,7 +258,7 @@ class LightspeedRetailApi {
   }
 
   async postItemCustomField(accountId:number, customField) {
-    const url = `${baseUrl}Account/${accountId}/Item/CustomField.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Item/CustomField.json`;
 
     const options = {
       method: 'POST',
@@ -275,7 +275,7 @@ class LightspeedRetailApi {
   }
 
   async postPaymentMethod(accountId:number, paymentMethod) {
-    const url = `${baseUrl}Account/${accountId}/PaymentType.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/PaymentType.json`;
 
     const options = {
       method: 'POST',
@@ -292,7 +292,7 @@ class LightspeedRetailApi {
   }
 
   async postCustomerCustomField(accountId:number, customField) {
-    const url = `${baseUrl}Account/${accountId}/Customer/CustomField.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Customer/CustomField.json`;
 
     const options = {
       method: 'POST',
@@ -309,7 +309,7 @@ class LightspeedRetailApi {
   }
 
   async postSale(accountId:number, sale: PostSale): Promise<Sale> {
-    const url = `${baseUrl}Account/${accountId}/Sale.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Sale.json`;
 
     const options = {
       method: 'POST',
@@ -326,7 +326,7 @@ class LightspeedRetailApi {
   }
 
   async putItem(accountId:number, item, ID) {
-    const url = `${baseUrl}Account/${accountId}/Item/${ID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Item/${ID}.json`;
 
     const options = {
       method: 'PUT',
@@ -343,7 +343,7 @@ class LightspeedRetailApi {
   }
 
   async putItemMatrix(accountId:number, matrix, ID) {
-    const url = `${baseUrl}Account/${accountId}/ItemMatrix/${ID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/ItemMatrix/${ID}.json`;
 
     const options = {
       method: 'PUT',
@@ -360,7 +360,7 @@ class LightspeedRetailApi {
   }
 
   async putCustomer(accountId:number, customer, ID) {
-    const url = `${baseUrl}Account/${accountId}/Customer/${ID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Customer/${ID}.json`;
 
     const options = {
       method: 'PUT',
@@ -377,7 +377,7 @@ class LightspeedRetailApi {
   }
 
   async getAccount():Promise<number> {
-    const url = `${baseUrl}Account.json`;
+    const url = `${baseUrl}/API/Account.json`;
 
     const options = {
       method: 'GET',
@@ -393,7 +393,7 @@ class LightspeedRetailApi {
   }
 
   async getTaxCategory(accountId:number, taxCategoryId): Promise<TaxCategory> {
-    const url = `${baseUrl}Account/${accountId}/TaxCategory/${taxCategoryId}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/TaxCategory/${taxCategoryId}.json`;
 
     return (await this.performRequest({ method: 'GET', url })).data.TaxCategory as TaxCategory;
   }
@@ -401,11 +401,11 @@ class LightspeedRetailApi {
   getCompletedSalesByPeriod(accountId:number, start, end) {
     let url = null;
     if (end == undefined) {
-      url = `${baseUrl}Account/${accountId}/Sale.json?completed==true&completeTime=${encodeURIComponent(
+      url = `${baseUrl}/API/Account/${accountId}/Sale.json?completed==true&completeTime=${encodeURIComponent(
         `>,${start}`
       )}`;
     } else {
-      url = `${baseUrl}Account/${accountId}/Sale.json?completed==true&completeTime=${encodeURIComponent(
+      url = `${baseUrl}/API/Account/${accountId}/Sale.json?completed==true&completeTime=${encodeURIComponent(
         `><,${start},${end}`
       )}`;
     }
@@ -417,7 +417,7 @@ class LightspeedRetailApi {
   }
 
   getSales(accountId:number) {
-    const url = `${baseUrl}Account/${accountId}/Sale.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Sale.json`;
     return new RetailApiCursor(url, 'Sale', this, {
       load_relations:
         '["TaxCategory","SaleLines","SaleLines.Item","SalePayments","SalePayments.PaymentType","Customer","Discount","Customer.Contact"]',
@@ -433,7 +433,7 @@ class LightspeedRetailApi {
         'SalePayments.PaymentType',
       ]),
     };
-    const url = `${baseUrl}Account/${accountId}/Sale/${saleId}.json?${querystring.stringify(
+    const url = `${baseUrl}/API/Account/${accountId}/Sale/${saleId}.json?${querystring.stringify(
       queryString
     )}`;
     const options = {
@@ -450,7 +450,7 @@ class LightspeedRetailApi {
   }
 
   async getSalePaymentByID(accountId:number, salePaymentID) {
-    const url = `${baseUrl}Account/${accountId}/SalePayment/${salePaymentID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/SalePayment/${salePaymentID}.json`;
 
     const options = {
       method: 'GET',
@@ -466,7 +466,7 @@ class LightspeedRetailApi {
   }
 
   async getSalePaymentBySaleID(accountId:number, saleID) {
-    const url = `${baseUrl}Account/${accountId}/SalePayment.json?saleID=${saleID}`;
+    const url = `${baseUrl}/API/Account/${accountId}/SalePayment.json?saleID=${saleID}`;
 
     const options = {
       method: 'GET',
@@ -482,7 +482,7 @@ class LightspeedRetailApi {
   }
 
   async getSaleLineBySaleID(accountId:number, saleID) {
-    const url = `${baseUrl}Account/${accountId}/SaleLine.json?saleID=${saleID}`;
+    const url = `${baseUrl}/API/Account/${accountId}/SaleLine.json?saleID=${saleID}`;
 
     const options = {
       method: 'GET',
@@ -498,7 +498,7 @@ class LightspeedRetailApi {
   }
 
   async getSaleLineByID(accountId:number, saleLineID) {
-    const url = `${baseUrl}Account/${accountId}/SaleLine/${saleLineID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/SaleLine/${saleLineID}.json`;
 
     const options = {
       method: 'GET',
@@ -514,7 +514,7 @@ class LightspeedRetailApi {
   }
 
   async getPaymentTypeByID(accountId:number, paymentTypeID) {
-    const url = `${baseUrl}Account/${accountId}/PaymentType/${paymentTypeID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/PaymentType/${paymentTypeID}.json`;
 
     const options = {
       method: 'GET',
@@ -530,7 +530,7 @@ class LightspeedRetailApi {
   }
 
   async getShopByID(accountId:number, shopID) {
-    const url = `${baseUrl}Account/${accountId}/Shop/${shopID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Shop/${shopID}.json`;
 
     const options = {
       method: 'GET',
@@ -546,7 +546,7 @@ class LightspeedRetailApi {
   }
 
   async getDiscountByID(accountId:number, discountID) {
-    const url = `${baseUrl}Account/${accountId}/Discount/${discountID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Discount/${discountID}.json`;
 
     const options = {
       method: 'GET',
@@ -562,7 +562,7 @@ class LightspeedRetailApi {
   }
 
   async getCustomerByID(accountId:number, customerID) {
-    const url = `${baseUrl}Account/${accountId}/Customer/${customerID}.json?load_relations=["CustomFieldValues", "CustomFieldValues.value"]`;
+    const url = `${baseUrl}/API/Account/${accountId}/Customer/${customerID}.json?load_relations=["CustomFieldValues", "CustomFieldValues.value"]`;
 
     const options = {
       method: 'GET',
@@ -578,7 +578,7 @@ class LightspeedRetailApi {
   }
 
   async getContactByID(accountId:number, contactID) {
-    const url = `${baseUrl}Account/${accountId}/Contact/${contactID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Contact/${contactID}.json`;
 
     const options = {
       method: 'GET',
@@ -594,7 +594,7 @@ class LightspeedRetailApi {
   }
 
   async getItemMatrixByID(accountId:number, itemMatrixID) {
-    const url = `${baseUrl}Account/${accountId}/ItemMatrix/${itemMatrixID}.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/ItemMatrix/${itemMatrixID}.json`;
 
     const options = {
       method: 'GET',
@@ -610,7 +610,7 @@ class LightspeedRetailApi {
   }
 
   async getItemsByMatrixID(accountId:number, itemMatrixID) {
-    const url = `${baseUrl}Account/${accountId}/Item.json?itemMatrixID=${itemMatrixID}`;
+    const url = `${baseUrl}/API/Account/${accountId}/Item.json?itemMatrixID=${itemMatrixID}`;
 
     const options = {
       method: 'GET',
@@ -626,7 +626,7 @@ class LightspeedRetailApi {
   }
 
   async getItemByCustomSku(accountId:number, customSku) {
-    const url = `${baseUrl}Account/${accountId}/Item.json?customSku=${customSku}`;
+    const url = `${baseUrl}/API/Account/${accountId}/Item.json?customSku=${customSku}`;
 
     const options = {
       method: 'GET',
@@ -652,7 +652,7 @@ class LightspeedRetailApi {
       'CustomFieldValues.value',
     ]
   ): Promise<Item> {
-    const url = `${baseUrl}Account/${accountId}/Item/${itemId}.json?load_relations=${querystring.escape(
+    const url = `${baseUrl}/API/Account/${accountId}/Item/${itemId}.json?load_relations=${querystring.escape(
       JSON.stringify(loadRelations)
     )}`;
 
@@ -670,17 +670,17 @@ class LightspeedRetailApi {
   }
 
   getCategories(accountId:number) {
-    const url = `${baseUrl}Account/${accountId}/Category.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Category.json`;
     return new RetailApiCursor(url, 'Category', this);
   }
 
   getManufacturers(accountId:number) {
-    const url = `${baseUrl}Account/${accountId}/Manufacturer.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Manufacturer.json`;
     return new RetailApiCursor(url, 'Manufacturer', this);
   }
 
   getItems(accountId:number, search:SearchParams = {}, relations?:string[],): RetailApiCursor<Item> {
-    const url = `${baseUrl}Account/${accountId}/Item.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Item.json`;
     return new RetailApiCursor(url, 'Item', this, {
       load_relations: '["ItemShops", "Images", "Manufacturer"]', //relations ? relations : '["ItemShops", "Images", "Manufacturer"]',
       ...searchParamsToQueryParams(search),
@@ -688,7 +688,7 @@ class LightspeedRetailApi {
   }
 
   getPaymentTypes(accountId:number) {
-    const url = `${baseUrl}Account/${accountId}/PaymentType.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/PaymentType.json`;
     return new RetailApiCursor<PaymentType>(url, 'PaymentType', this, {});
   }
 
@@ -696,7 +696,7 @@ class LightspeedRetailApi {
     accountId,
     customersSearchParams: CustomerSearchParams = {}
   ): RetailApiCursor<Customer> {
-    const url = `${baseUrl}Account/${accountId}/Customer.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/Customer.json`;
     return new RetailApiCursor(url, 'Customer', this, {
       load_relations: '["Contact", "CustomFieldValues"]',
       ...searchParamsToQueryParams(customersSearchParams),
@@ -704,7 +704,7 @@ class LightspeedRetailApi {
   }
 
   getCustomerTypes(accountId:number) {
-    const url = `${baseUrl}Account/${accountId}/CustomerType.json`;
+    const url = `${baseUrl}/API/Account/${accountId}/CustomerType.json`;
     return new RetailApiCursor(url, 'CustomerType', this);
   }
 }
