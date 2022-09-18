@@ -146,13 +146,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Item.json?load_relations=%5B%22ItemShops%22%2C%20%22Images%22%2C%20%22Manufacturer%22%5D&offset=0&limit=100'
+            '/API/Account/12345/Item.json?load_relations=%5B%22ItemShops%22%2C%20%22Images%22%2C%20%22Manufacturer%22%5D&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: [
               {
@@ -171,7 +171,6 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         const elements = [];
         for await (const item of response) {
-          console.log(item);
           elements.push(item);
         }
 
@@ -199,13 +198,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Item.json?load_relations=%5B%22ItemShops%22%2C%20%22Images%22%2C%20%22Manufacturer%22%5D&offset=0&limit=100'
+            '/API/Account/12345/Item.json?load_relations=%5B%22ItemShops%22%2C%20%22Images%22%2C%20%22Manufacturer%22%5D&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: [
               {
@@ -247,12 +246,12 @@ describe('LightspeedRetailApi Retail Api', () => {
           });
 
         nock(baseUrl)
-          .get('/API/Account/12345/Category.json?offset=0&limit=100')
+          .get('/API/Account/12345/Category.json?limit=100')
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Category: [
               {
@@ -297,12 +296,12 @@ describe('LightspeedRetailApi Retail Api', () => {
           });
 
         nock(baseUrl)
-          .get('/API/Account/12345/Category.json?offset=0&limit=100')
+          .get('/API/Account/12345/Category.json?limit=100')
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Category: [
               {
@@ -344,12 +343,12 @@ describe('LightspeedRetailApi Retail Api', () => {
           });
 
         nock(baseUrl)
-          .get('/API/Account/12345/Manufacturer.json?offset=0&limit=100')
+          .get('/API/Account/12345/Manufacturer.json?limit=100')
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Manufacturer: [
               {
@@ -394,12 +393,12 @@ describe('LightspeedRetailApi Retail Api', () => {
           });
 
         nock(baseUrl)
-          .get('/API/Account/12345/Manufacturer.json?offset=0&limit=100')
+          .get('/API/Account/12345/Manufacturer.json?limit=100')
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Manufacturer: [
               {
@@ -442,13 +441,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&offset=0&limit=100'
+            '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Customer: [
               {
@@ -494,13 +493,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&offset=0&limit=100'
+            '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Customer: [
               {
@@ -541,13 +540,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&title=~%2C%25Barf%25&lastName=Sagat&firstName=Bob&offset=0&limit=100'
+            '/API/Account/12345/Customer.json?load_relations=%5B%22Contact%22%2C%20%22CustomFieldValues%22%5D&title=~%2C%25Barf%25&lastName=Sagat&firstName=Bob&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Customer: [
               {
@@ -595,12 +594,12 @@ describe('LightspeedRetailApi Retail Api', () => {
           });
 
         nock(baseUrl)
-          .get('/API/Account/12345/CustomerType.json?offset=0&limit=100')
+          .get('/API/Account/12345/CustomerType.json?limit=100')
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             CustomerType: [
               {
@@ -645,12 +644,12 @@ describe('LightspeedRetailApi Retail Api', () => {
           });
 
         nock(baseUrl)
-          .get('/API/Account/12345/CustomerType.json?offset=0&limit=100')
+          .get('/API/Account/12345/CustomerType.json?limit=100')
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             CustomerType: [
               {
@@ -693,13 +692,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Sale.json?load_relations=%5B%22TaxCategory%22%2C%22SaleLines%22%2C%22SaleLines.Item%22%2C%22SalePayments%22%2C%22SalePayments.PaymentType%22%2C%22Customer%22%2C%22Discount%22%2C%22Customer.Contact%22%5D&offset=0&limit=100'
+            '/API/Account/12345/Sale.json?load_relations=%5B%22TaxCategory%22%2C%22SaleLines%22%2C%22SaleLines.Item%22%2C%22SalePayments%22%2C%22SalePayments.PaymentType%22%2C%22Customer%22%2C%22Discount%22%2C%22Customer.Contact%22%5D&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Sale: [
               {
@@ -745,13 +744,13 @@ describe('LightspeedRetailApi Retail Api', () => {
 
         nock(baseUrl)
           .get(
-            '/API/Account/12345/Sale.json?load_relations=%5B%22TaxCategory%22%2C%22SaleLines%22%2C%22SaleLines.Item%22%2C%22SalePayments%22%2C%22SalePayments.PaymentType%22%2C%22Customer%22%2C%22Discount%22%2C%22Customer.Contact%22%5D&offset=0&limit=100'
+            '/API/Account/12345/Sale.json?load_relations=%5B%22TaxCategory%22%2C%22SaleLines%22%2C%22SaleLines.Item%22%2C%22SalePayments%22%2C%22SalePayments.PaymentType%22%2C%22Customer%22%2C%22Discount%22%2C%22Customer.Contact%22%5D&limit=100'
           )
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Sale: [
               {
@@ -801,8 +800,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: {
               itemID: '1',
@@ -834,8 +833,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             ItemMatrix: {
               itemMatrixID: '1',
@@ -867,8 +866,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '2',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: [
               {
@@ -907,8 +906,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '2',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: {
               customSku: '1',
@@ -944,8 +943,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Customer: {
               customerID: '1',
@@ -977,8 +976,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Contact: {
               contactID: '1',
@@ -1012,8 +1011,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             SalePayment: {
               salePaymentID: '1',
@@ -1045,8 +1044,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '2',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             SalePayment: [
               {
@@ -1085,8 +1084,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '2',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             SaleLine: [
               {
@@ -1125,8 +1124,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             SaleLine: {
               saleLineID: '1',
@@ -1158,8 +1157,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             PaymentType: {
               paymentTypeID: '1',
@@ -1191,8 +1190,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Shop: {
               shopID: '1',
@@ -1228,8 +1227,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Customer: {
               customerID: '1',
@@ -1264,8 +1263,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Sale: {
               saleID: '1',
@@ -1298,8 +1297,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             CustomerType: {
               customerTypeID: '1',
@@ -1331,8 +1330,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             CustomField: {
               customFieldID: '1',
@@ -1368,8 +1367,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: {
               itemID: '1',
@@ -1401,8 +1400,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             ItemAttributeSet: {
               itemAttributeSetID: '1',
@@ -1436,8 +1435,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             ItemMatrix: {
               itemMatrixID: '1',
@@ -1469,8 +1468,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             CustomField: {
               customFieldID: '1',
@@ -1506,8 +1505,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             PaymentType: {
               paymentTypeID: '1',
@@ -1543,8 +1542,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Customer: {
               customerID: '1',
@@ -1578,8 +1577,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             Item: {
               itemID: '1',
@@ -1611,8 +1610,8 @@ describe('LightspeedRetailApi Retail Api', () => {
           .reply(200, {
             '@attributes': {
               count: '1',
-              offset: '0',
               limit: '100',
+              next: ''
             },
             ItemMatrix: {
               itemMatrixID: '1',
